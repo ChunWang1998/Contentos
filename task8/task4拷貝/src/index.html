@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<title>Joe's task 8</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+.button1 {width: 100px;}
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+.button_nft {
+  border: none;
+  width: 180px;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.shadowbox {
+  width: 15em;
+  padding: 8px 12px;
+}
+.NFT_color{background: #a0dada}
+.button_able{background-color: #4CAF50;; color: white;}
+.button_disable {background-color: #e7e7e7; color: rgb(221, 19, 19);}
+.value_color{color: rgb(197, 209, 24);}
+.text_color{color: rgb(207, 18, 150)}
+.text_color_black{color: black}
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="#home" class="w3-bar-item w3-button"> Top</a>
+    <!-- Float links to the right. Hide them on small screens -->
+  
+      <a href="#itemRow" class="w3-bar-item w3-button">NFTs</a>
+      <a href="#Description" class="w3-bar-item w3-button">Description</a>
+      <a href="#Author" class="w3-bar-item w3-button">Author</a>
+      <!-- <a style="text-align:right" class="w3-bar-item text_color">Now you have <strong id = "pNFTs_percentage">？</strong>% of pNFTs</a> -->
+      <a class="w3-bar-item text_color_black">your pNFTs token address:<a class="w3-bar-item w3-button btn-check button1 button_able" >check</a><a id = "pNFTs_addr" class = "shadowbox" style="font-size:0.1vw"></a></a>
+
+
+  </div>
+   <!-- refer:https://ithelp.ithome.com.tw/articles/10217021 -->
+  <div class="progress-bar progress-bar-striped active progress" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+    You own <a id = "NFT_percentage1" class = "value_color">?</a>/<a id = "NFT_percentage2" class = "value_color">?</a> of this NFTs
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+  <img class="w3-image" src="https://static.coindesk.com/wp-content/uploads/2018/01/bitcoin-cat-e1514898999380.jpg" alt="Architecture" width="1500" height="800">
+  
+</header>
+
+<!-- Page content -->
+<div class="w3-content w3-padding" style="max-width:1564px">
+<!-- input contract -->
+<form name="myForm">
+  
+  <label for="fname">Input NFT contract address <strong>first</strong></label>
+  <input type="text" name="contract" value="" placeholder="token addr" >
+  <input class="w3-button w3-block w3-teal button1" type="button" value="send" onClick="get_contract()" style="float: left;">
+
+  <input type="text" name="receiver" value="" placeholder="receiver">
+  <input class="w3-button w3-block w3-teal button1" type="button" value="send" onClick="get_receiver()" style="float: left;"> 
+
+  <input type="text" name="shares" value="" placeholder="shares">
+  <input class="w3-button w3-block w3-teal button1" type="button" value="send" onClick="get_shares()"style="float: left;"> 
+</form>
+
+  <!-- Project Section -->
+  <div class="w3-container w3-padding-32" id="itemRow">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">NFTs</h3>
+  </div>
+
+
+  <div id="Template" style="display: none;" class="w3-row-padding">
+      <div class="w3-col l3 m6 w3-margin-bottom">
+        <div class="w3-display-container">
+          <h3 class="panel-title" id = "title" style="color:black;">Scrappy</h3>
+        </div>
+        <div class="NFT_color">
+          <img alt="140x140" data-src="holder.js/140x140" class="img-rounded img-center" style="width: 80%;" src="https://animalso.com/wp-content/uploads/2017/01/Golden-Retriever_6.jpg" data-holder-rendered="true">
+          <br/><br/>
+
+          <button class="btn btn-setting btn-deposit button_nft button_able" type="button" data-id="1" data-metadata="2">DepositNFT</button>
+          <button class="btn btn-setting btn-withdraw button_nft button_able" type="button " data-id="2" data-metadata="3">WithdrawNFT</button>
+          <button class="btn btn-setting btn-deposit_approve button_nft button_able" type="button" data-id="3" data-metadata="4">Deposit_Approve</button>
+          <button class="btn btn-setting btn-withdraw_approve button_nft button_able" type="button" data-id="4" data-metadata="5" >Withdraw_Approve</button>
+     
+        </div>
+    </div>
+  </div>
+
+
+  <!-- Description Section -->
+  <div class="w3-container w3-padding-32" id="Description">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Description</h3>
+    <p>You can deposit your NFT in the smart contract, and choose how many erc20 tokens you want to mint. 
+      After you receive your NFT erc20 tokens(pNFTs),you can trasfer to other address. 
+      If you want to withdraw your NFT, you have to use all your pNFTs token. 
+    </p>
+    <p><strong>Attention:</strong> before deposit and withdraw NFT, please approve them respectively</p>
+  </div>
+
+  <div class="w3-container w3-padding-32" id="Author">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Author</h3>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <img src="https://avatars.githubusercontent.com/u/52391458?v=4" alt="John" style="width:100%">
+      <h3>Joe</h3>
+      <p>NTHU CS student</p>
+    </div>
+  </div>
+
+</div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
